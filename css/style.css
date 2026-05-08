@@ -658,6 +658,28 @@ body.light-mode .hero-name {
   height: 200px;
   overflow: hidden;
 }
+.project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+.project-img-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  padding: 6px;
+}
+.project-img-gallery img {
+  border-radius: 8px;
+}
+.project-img:hover img {
+  transform: scale(1.08);
+}
+.project-img-gallery img:hover {
+  transform: scale(1.12);
+}
 
 .project-img-1 {
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
@@ -740,6 +762,47 @@ body.light-mode .hero-name {
 /* ============================
    EDUCATION TIMELINE
    ============================ */
+.edu-cert-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  align-items: start;
+}
+
+.edu-cert-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.edu-cert-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.edu-cert-item {
+  padding: 24px;
+}
+
+.edu-cert-item h4 {
+  font-family: var(--font-heading);
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+
+.edu-cert-item p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
 .timeline {
   position: relative;
   max-width: 720px;
@@ -874,6 +937,14 @@ body.light-mode .hero-name {
   font-size: 0.9rem;
   font-weight: 500;
 }
+.form-error {
+  display: none;
+  text-align: center;
+  margin-top: 10px;
+  color: #ef4444;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
 
 /* ============================
    FOOTER
@@ -959,5 +1030,6 @@ body.light-mode .hero-name {
   .hero-btns { flex-direction: column; align-items: center; }
   .projects-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
+  .edu-cert-grid { grid-template-columns: 1fr; }
   .section { padding: 72px 0; }
 }

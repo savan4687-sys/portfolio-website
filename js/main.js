@@ -185,19 +185,44 @@ revealEls.forEach(el => revealObserver.observe(el));
    ============================ */
 const form = document.getElementById('contact-form');
 const successMsg = document.getElementById('form-success');
+const errorMsg = document.getElementById('form-error');
 const submitBtn = document.getElementById('submit-btn');
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
+  successMsg.style.display = 'none';
+  errorMsg.style.display = 'none';
   submitBtn.textContent = 'Sending…';
   submitBtn.disabled = true;
-  setTimeout(() => {
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: {
+        Accept: 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error('Form submission failed');
+    }
+
     submitBtn.textContent = 'Send Message 🚀';
     submitBtn.disabled = false;
     successMsg.style.display = 'block';
     form.reset();
-    setTimeout(() => successMsg.style.display = 'none', 4000);
-  }, 1500);
+    setTimeout(() => {
+      successMsg.style.display = 'none';
+    }, 4000);
+  } catch (error) {
+    submitBtn.textContent = 'Send Message 🚀';
+    submitBtn.disabled = false;
+    errorMsg.style.display = 'block';
+    setTimeout(() => {
+      errorMsg.style.display = 'none';
+    }, 5000);
+  }
 });
 
 /* ============================

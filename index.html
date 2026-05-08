@@ -182,6 +182,11 @@
       <div class="projects-grid">
 
         <div class="project-card glass-card reveal">
+          <div class="project-img project-img-gallery">
+            <img src="assets/projects/sales-dashboard-1.png" alt="Sales Dashboard Page 1" />
+            <img src="assets/projects/sales-dashboard-2.png" alt="Sales Dashboard Page 2" />
+            <img src="assets/projects/sales-dashboard-3.png" alt="Sales Dashboard Page 3" />
+          </div>
           <div class="project-info">
             <div class="project-tags">
               <span class="project-tag">SAP Analytics Cloud</span>
@@ -196,6 +201,9 @@
         </div>
 
         <div class="project-card glass-card reveal">
+          <div class="project-img">
+            <img src="assets/projects/herbal-skincare.png" alt="Herbal Skin Care Recommendation System Preview" />
+          </div>
           <div class="project-info">
             <div class="project-tags">
               <span class="project-tag">Python</span>
@@ -209,6 +217,9 @@
         </div>
 
         <div class="project-card glass-card reveal">
+          <div class="project-img">
+            <img src="assets/projects/design-agent.png" alt="Design Agent Preview" />
+          </div>
           <div class="project-info">
             <div class="project-tags">
               <span class="project-tag">HTML</span>
@@ -229,46 +240,39 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="section-tag">My Background</span>
-        <h2 class="section-title">Education & <span class="accent">Certifications</span></h2>
       </div>
-      <div class="timeline">
+      <div class="edu-cert-grid">
+        <div class="edu-cert-col reveal">
+          <h3 class="edu-cert-title">Education</h3>
 
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content glass-card">
+          <div class="edu-cert-item glass-card">
             <span class="timeline-year">2023 – Present</span>
-            <h3>Bachelor of Engineering (Computer Engineering)</h3>
+            <h4>Bachelor of Engineering (Computer Engineering)</h4>
             <p class="timeline-place">Madhuben & Bhanubhai Patel Institute of Technology, CVM University</p>
           </div>
-        </div>
 
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content glass-card">
+          <div class="edu-cert-item glass-card">
             <span class="timeline-year">2021 – 2023</span>
-            <h3>Higher Secondary Education</h3>
+            <h4>Higher Secondary Education</h4>
             <p class="timeline-place">Knowledge High School, Nadiad</p>
           </div>
         </div>
 
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content glass-card">
+        <div class="edu-cert-col reveal">
+          <h3 class="edu-cert-title">Certifications</h3>
+
+          <div class="edu-cert-item glass-card">
             <span class="timeline-year">2026</span>
-            <h3>SAP Certified - Data Analyst - SAP Analytics Cloud</h3>
+            <h4>SAP Certified - Data Analyst - SAP Analytics Cloud</h4>
             <p>Gained knowledge of data visualization, dashboard creation, and analytics tools.</p>
           </div>
-        </div>
 
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content glass-card">
+          <div class="edu-cert-item glass-card">
             <span class="timeline-year">2026</span>
-            <h3>AWS Academy Graduate – Cloud Foundations</h3>
+            <h4>AWS Academy Graduate – Cloud Foundations</h4>
             <p>Learned basic cloud computing concepts including AWS services and cloud architecture.</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -299,7 +303,10 @@
             </div>
           </div>
         </div>
-        <form class="contact-form glass-card reveal" id="contact-form">
+        <form class="contact-form glass-card reveal" id="contact-form" action="https://formsubmit.co/savan4687@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_subject" value="New portfolio contact message" />
+          <input type="hidden" name="_template" value="table" />
           <div class="form-group">
             <input type="text" id="name" name="name" placeholder="Your Name" required />
           </div>
@@ -311,6 +318,7 @@
           </div>
           <button type="submit" class="btn btn-primary w-full" id="submit-btn">Send Message 🚀</button>
           <p class="form-success" id="form-success">✅ Message sent! I'll reply soon.</p>
+          <p class="form-error" id="form-error">❌ Message could not be sent. Please try again.</p>
         </form>
       </div>
     </div>
