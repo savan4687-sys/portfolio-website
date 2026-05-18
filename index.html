@@ -97,8 +97,37 @@
       <div class="about-grid">
         <div class="about-image-wrap reveal">
           <div class="about-image-glow"></div>
-          <div class="about-avatar">
-            <div class="avatar-initials">S</div>
+          <div class="about-avatar-box">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="about-svg-avatar">
+              <!-- Background circle -->
+              <defs>
+                <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.2" />
+                  <stop offset="100%" style="stop-color:#7b2ff7;stop-opacity:0.2" />
+                </linearGradient>
+                <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#00d4ff" />
+                  <stop offset="100%" style="stop-color:#7b2ff7" />
+                </linearGradient>
+              </defs>
+              <circle cx="100" cy="100" r="95" fill="url(#avatarGrad)" stroke="url(#iconGrad)" stroke-width="2"/>
+              <!-- Code brackets < /> -->
+              <text x="100" y="85" font-family="monospace" font-size="32" fill="url(#iconGrad)" text-anchor="middle" font-weight="bold">&lt;/&gt;</text>
+              <!-- Decorative dots -->
+              <circle cx="55" cy="68" r="4" fill="#00d4ff" opacity="0.7"/>
+              <circle cx="70" cy="68" r="4" fill="#7b2ff7" opacity="0.7"/>
+              <circle cx="85" cy="68" r="4" fill="#00d4ff" opacity="0.7"/>
+              <!-- Data bars -->
+              <rect x="55" y="110" width="12" height="30" rx="3" fill="url(#iconGrad)" opacity="0.9"/>
+              <rect x="73" y="100" width="12" height="40" rx="3" fill="url(#iconGrad)" opacity="0.75"/>
+              <rect x="91" y="118" width="12" height="22" rx="3" fill="url(#iconGrad)" opacity="0.9"/>
+              <rect x="109" y="105" width="12" height="35" rx="3" fill="url(#iconGrad)" opacity="0.75"/>
+              <rect x="127" y="112" width="12" height="28" rx="3" fill="url(#iconGrad)" opacity="0.9"/>
+              <!-- Baseline -->
+              <line x1="45" y1="142" x2="155" y2="142" stroke="url(#iconGrad)" stroke-width="1.5" opacity="0.5"/>
+              <!-- Orbit ring -->
+              <ellipse cx="100" cy="100" rx="92" ry="92" fill="none" stroke="url(#iconGrad)" stroke-width="0.5" stroke-dasharray="4 6" opacity="0.4"/>
+            </svg>
           </div>
         </div>
         <div class="about-text reveal">
@@ -151,6 +180,8 @@
           <h4>Programming</h4>
           <div class="skill-tags">
             <span class="skill-tag">Python</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">NumPy</span>
             <span class="skill-tag">Basic Data Analysis</span>
           </div>
         </div>
@@ -321,6 +352,7 @@
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_subject" value="New portfolio contact message" />
           <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_next" value="https://savan4687-sys.github.io/portfolio-website/#contact" />
           <div class="form-group">
             <input type="text" id="name" name="name" placeholder="Your Name" required />
           </div>
@@ -345,6 +377,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 

@@ -181,47 +181,50 @@ const revealObserver = new IntersectionObserver((entries) => {
 revealEls.forEach(el => revealObserver.observe(el));
 
 /* ============================
-   CONTACT FORM
+   CONTACT FORM  (EmailJS)
    ============================ */
 const form = document.getElementById('contact-form');
 const successMsg = document.getElementById('form-success');
-const errorMsg = document.getElementById('form-error');
-const submitBtn = document.getElementById('submit-btn');
+const errorMsg   = document.getElementById('form-error');
+const submitBtn  = document.getElementById('submit-btn');
+
+// ── Replace these 3 values with yours from emailjs.com ──
+const EMAILJS_PUBLIC_KEY  = 'PShZGcPqoRRLbRv3y';    // Account → Public Key
+const EMAILJS_SERVICE_ID  = 'service_6ofhhuy';    // Email Services → Service ID
+const EMAILJS_TEMPLATE_ID = 'template_33uiyrw';   // Email Templates → Template ID
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   successMsg.style.display = 'none';
-  errorMsg.style.display = 'none';
+  errorMsg.style.display   = 'none';
   submitBtn.textContent = 'Sending…';
-  submitBtn.disabled = true;
+  submitBtn.disabled    = true;
+
+  const templateParams = {
+    name:         document.getElementById('name').value.trim(),
+    email:        document.getElementById('email').value.trim(),
+    message:      document.getElementById('message').value.trim(),
+    from_name:    document.getElementById('name').value.trim() // Keep this just in case they use it in From Name
+  };
 
   try {
-    const response = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: {
-        Accept: 'application/json'
-      }
-    });
-
-    if (!response.ok) {
-      throw new Error('Form submission failed');
-    }
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY);
 
     submitBtn.textContent = 'Send Message 🚀';
-    submitBtn.disabled = false;
+    submitBtn.disabled    = false;
+    successMsg.textContent = '✅ Message sent! I\'ll reply soon.';
+    successMsg.style.color = '';
     successMsg.style.display = 'block';
     form.reset();
-    setTimeout(() => {
-      successMsg.style.display = 'none';
-    }, 4000);
-  } catch (error) {
+    setTimeout(() => { successMsg.style.display = 'none'; }, 5000);
+
+  } catch (err) {
+    console.error('EmailJS error:', err);
     submitBtn.textContent = 'Send Message 🚀';
-    submitBtn.disabled = false;
+    submitBtn.disabled    = false;
+    errorMsg.textContent  = '❌ Could not send. Please try again.';
     errorMsg.style.display = 'block';
-    setTimeout(() => {
-      errorMsg.style.display = 'none';
-    }, 5000);
+    setTimeout(() => { errorMsg.style.display = 'none'; }, 5000);
   }
 });
 
